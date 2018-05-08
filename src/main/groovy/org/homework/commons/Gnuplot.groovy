@@ -1,10 +1,8 @@
 package org.homework.commons;
 
-import com.google.common.base.Joiner;
-import com.google.common.io.Files
+import com.google.common.base.Joiner
 import com.panayotis.gnuplot.JavaPlot
 import com.panayotis.gnuplot.dataset.FileDataSet
-import groovy.io.FileType;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.spark.api.java.function.MapFunction;
 import org.apache.spark.ml.linalg.Vector;
@@ -47,13 +45,7 @@ class Gnuplot {
 
 
     private renameFileTo() {
-        workDir.eachFile(FileType.FILES) { File file ->
-            if (!file.getName().endsWith("txt")) {
-                return
-            }
-
-            Files.move(file, targetFile)
-        }
+        SparkFileUtils.renameFile(workDir, targetFile)
     }
 
     static class GnuplotFunction implements MapFunction<Row, Row>, Serializable {

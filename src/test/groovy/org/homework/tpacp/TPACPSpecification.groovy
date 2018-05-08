@@ -100,7 +100,7 @@ class TPACPSpecification extends Specification implements Serializable {
         spamEchStratifie.groupBy("label").count().show()
     }
 
-    def "Echantillonnag stratifié plus exacte en passant par les RDD"() {
+    def "Echantillonage stratifié plus exacte en passant par les RDD"() {
         setup:
         Map<Double, Double> fractions = [0.0d: 0.5d, 1.0d: 0.5d]
 
